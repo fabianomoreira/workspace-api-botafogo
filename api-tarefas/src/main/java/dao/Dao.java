@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Dao {
-	public static String status = "Desconectado...";
+	public static String status = "STATUS --> Desconectado...";
 	
 	public static Connection getConexao() {
 		Connection cnx = null;
@@ -17,7 +17,7 @@ public class Dao {
 			
 			String serverName = "localhost:3306";
 			String dataBase = "gerenciador";
-			String url = "jdbc.mysql://" + serverName + "/" + dataBase;
+			String url = "jdbc:mysql://" + serverName + "/" + dataBase;
 			String user = "root";
 			String password = "";
 			
@@ -36,6 +36,19 @@ public class Dao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public static String getStatusConexao() {
+		return status;
+	}
+	
+	public static boolean fecharConexao() {
+		try {
+			Dao.getConexao().close();
+			return true;
+		} catch (SQLException e) {
+			return false;
 		}
 	}
 }
