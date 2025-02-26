@@ -40,9 +40,20 @@ public class TesteBanco {
 		
 		List<Tarefa> lista2 = service.buscarPorDescricao(criterio2);
 		
-		for(Tarefa t2: lista) {
+		for(Tarefa t2: lista2) {
 			System.out.println(t2);
 		}		
+		
+		Tarefa tarefaIncluir = new Tarefa();
+		tarefaIncluir.setDescricao("Comer biscoito");
+		tarefaIncluir.setPrazo(5);
+		tarefaIncluir.setFinalizada(false);
+		
+		if(service.incluirTarefa(tarefaIncluir)) {
+			System.out.println("Registro incluido com sucesso");
+		} else {
+			System.out.println("Ocorreu algum erro");
+		}
 	}
 
 }
