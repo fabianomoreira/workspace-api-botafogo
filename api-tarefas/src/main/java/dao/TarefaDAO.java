@@ -43,7 +43,7 @@ public class TarefaDAO {
 		Connection cnx = Dao.getConexao();
  
 		StringBuilder QUERY = new StringBuilder();
-		QUERY.append("UPDATE SET tarefas DESCRICAO = ?, PRAZO = ?, FINALIZADA = ? ");
+		QUERY.append("UPDATE tarefas SET DESCRICAO = ?, PRAZO = ?, FINALIZADA = ? ");
 		QUERY.append("WHERE ID = ?");
 			   
 		PreparedStatement ps;
